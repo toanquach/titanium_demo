@@ -9,7 +9,7 @@ function __processArg(obj, key) {
 
 function Controller() {
     function handleMenuClick(_event) {
-        "undefined" != typeof _event.row.id && openScreen(_event.row.id);
+        "undefined" != typeof _event.row.id && Ti.App.Info(_event.row, id);
     }
     function openMenu() {
         $.AppWrapper.animate({
@@ -69,19 +69,27 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var nodes = [ {
-        menuHeader: "My Tabs",
-        id: 0,
-        title: "Home",
-        image: "/images/home.png"
-    }, {
         id: 1,
-        title: "Contact",
-        image: "/images/phone.png"
+        title: "Bureaux \nfavoris",
+        image: "/images/ic_star.png"
     }, {
         id: 2,
-        title: "Settings",
-        image: "/images/gear.png"
+        title: "Calculs de tarifs mémorisés",
+        image: "/images/ic_search.png"
+    }, {
+        id: 3,
+        title: "Suivi d’envoi \nen cours",
+        image: "/images/ic_send_mail.png"
+    }, {
+        id: 4,
+        title: "Notifications",
+        image: "/images/ic_notification.png"
+    }, {
+        id: 5,
+        title: "Visite guidée",
+        image: "/images/icon_visite_guidee.png"
     } ];
+    var isMenuClose = true;
     $.SlideMenu.init({
         nodes: nodes,
         color: {
@@ -92,7 +100,27 @@ function Controller() {
     $.SlideMenu.setIndex(0);
     $.SlideMenu.Nodes.addEventListener("click", handleMenuClick);
     $.AppWrapper.addEventListener("swipe", function(_event) {
-        "right" == _event.direction ? openMenu() : "left" == _event.direction && closeMenu();
+        if ("right" == _event.direction) {
+            openMenu();
+            isMenuClose = false;
+        } else if ("left" == _event.direction) {
+            closeMenu();
+            isMenuClose = true;
+        }
+    });
+    var menuButton = Ti.UI.createButton({
+        backgroundImage: "images/menu_black.png",
+        toggle: false
+    });
+    $.MainWindow.setLeftNavButton(menuButton);
+    menuButton.addEventListener("click", function() {
+        if (true == isMenuClose) {
+            openMenu();
+            isMenuClose = false;
+        } else if (false == isMenuClose) {
+            closeMenu();
+            isMenuClose = true;
+        }
     });
     _.extend($, exports);
 }

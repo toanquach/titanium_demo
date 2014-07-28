@@ -51,7 +51,7 @@ $.init = function(_params) {
 				fontSize: "16dp",
 				fontFamily: "HelveticaNeue-Light"
 			},
-			color: "#FFF",
+			color: "#222",
 			touchEnabled: false
 		});
 
@@ -166,5 +166,6 @@ $.setIndex = function(_index) {
 
 // Move the UI down if iOS7+
 if(OS_IOS && parseInt(Ti.Platform.version.split(".")[0], 10) >= 7) {
-	$.Nodes.top = "20dp";
+	//$.Nodes.top = "20dp";
+	$.Nodes.setSeparatorInsets({left:0, right:0});
 }

@@ -52,6 +52,7 @@ function Controller() {
     setTimeout(function() {
         menu(null);
         $.index.close();
+        $.spiner.stop();
     }, 2e3);
     $.spiner.animate(a);
     $.index.open();

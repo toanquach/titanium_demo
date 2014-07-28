@@ -36,7 +36,7 @@ function handleMenuClick(_event) {
 
 function openMenu() {
     $.AppWrapper.animate({
-        left: "200dp",
+        left: "250dp",
         duration: 250,
         curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
     });
@@ -56,7 +56,7 @@ function closeMenu() {
     });
 
     $.SlideMenu.Wrapper.animate({
-        left: "-200dp",
+        left: "-250dp",
         duration: 250,
         curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
     });
@@ -77,7 +77,8 @@ $.AppWrapper.addEventListener("swipe", function(_event) {
  * Set up left nav bar for NAV
  */
 var menuButton = Ti.UI.createButton({
-    backgroundImage :'images/menu_black.png', //menu_black.png
+    backgroundImage :'/images/menu_black.png', //menu_black.png
+    image : '/images/menu_black.png',
     toggle:false // Custom property for menu toggle
 });
 
@@ -98,9 +99,8 @@ menuButton.addEventListener('click', function(e)
     }
 });
 
-if(Titanium.Platform.Android)
-{
-	var mainMenuView = Alloy.createController('mainMenuView').getView();
-	$.AppWrapper.add(mainMenuView);
-}
+
+var mainMenuView = Alloy.createController('mainMenuView').getView();
+$.AppWrapper.add(mainMenuView);
+
 

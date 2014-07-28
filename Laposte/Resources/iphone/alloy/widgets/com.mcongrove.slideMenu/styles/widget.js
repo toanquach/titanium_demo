@@ -12,7 +12,7 @@ module.exports = [ {
         width: "200dp",
         top: "0dp",
         left: "-200dp",
-        backgroundColor: "#000"
+        backgroundColor: "#FFC526"
     }
 }, {
     isId: true,
@@ -20,7 +20,7 @@ module.exports = [ {
     key: "Nodes",
     style: {
         top: "0dp",
-        backgroundColor: "#111",
+        backgroundColor: "#FFC526",
         separatorColor: "#222",
         separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.SINGLE_LINE
     }

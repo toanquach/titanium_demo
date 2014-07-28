@@ -1,6 +1,6 @@
 // Create our node items
 var nodes = [
-    { menuHeader: "My Tabs", id: 0, title: "Accueil", image: "/images/ic_home.png" },
+    { menuHeader: "", id: 0, title: "Accueil", image: "/images/ic_home.png" },
     { id: 1, title: "Bureaux \nfavoris", image: "/images/ic_star.png" },
     { id: 2, title: "Calculs de tarifs mémorisés", image: "/images/ic_search.png" },
     { id: 3, title: "Suivi d’envoi \nen cours", image: "/images/ic_send_mail.png" },
@@ -12,7 +12,7 @@ var nodes = [
 $.SlideMenu.init({
     nodes: nodes,
     color: {
-        headingBackground: "#000",
+        headingBackground: "#FFC526",
         headingText: "#FFF"
     }
 });
@@ -66,3 +66,9 @@ $.AppWrapper.addEventListener("swipe", function(_event) {
         closeMenu();
     }
 });
+
+if(Titanium.Platform.Android)
+{
+	var mainMenuView = Alloy.createController('mainMenuView').getView();
+	$.AppWrapper.add(mainMenuView);
+}

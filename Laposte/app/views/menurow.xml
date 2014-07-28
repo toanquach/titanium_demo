@@ -1,5 +1,5 @@
 <Alloy>
-  <TableViewRow id="row">
+  <TableViewRow id="row" backgroundColor = "#FFC526">
   	<ImageView id="icon"/>
     <View class="vgroup">
       <Label id="title"/>

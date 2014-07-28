@@ -53,13 +53,13 @@ if (readFile.exists())
 			}
 		);
 		
-		var imgView = Ti.UI.createImageView({ left:10, top:10, width:60, height:60, Image:'/images/preparer_un_envoi_map.png' });
+		var imgView = Ti.UI.createImageView({ left:10, top:10, width:60, height:60, image:'/images/preparer_un_envoi_map.png' });
 		customView.add(imgView);
 		
 		var label = Ti.UI.createLabel({left:80, height:30, top:25, width:230});
 		label.text = rowTitle.text;
 		customView.add(label);
-		label.font = " {fontFamily: 'DINPro-Regular'}";
+		label.font = " {fontFamily: 'DINPro-Regular', fontSize: 24  }";
 		// Add custom view
 		row.add(customView);
 		data.push(row);

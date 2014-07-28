@@ -1,5 +1,6 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
+		 <ImageView id="splashImage" image="Default-568h@2x.png" />
+		 	<ImageView id="spiner" image="images/loading.png" height="40" width="40" top="400" />
 	</Window>
 </Alloy>

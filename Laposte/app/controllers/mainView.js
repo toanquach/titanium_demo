@@ -1,8 +1,11 @@
 // Create our node items
 var nodes = [
-    { menuHeader: "My Tabs", id: 0, title: "Home", image: "/images/home.png" },
-    { id: 1, title: "Contact", image: "/images/phone.png" },
-    { id: 2, title: "Settings", image: "/images/gear.png" }
+    { menuHeader: "My Tabs", id: 0, title: "Accueil", image: "/images/ic_home.png" },
+    { id: 1, title: "Bureaux \nfavoris", image: "/images/ic_star.png" },
+    { id: 2, title: "Calculs de tarifs mémorisés", image: "/images/ic_search.png" },
+    { id: 3, title: "Suivi d’envoi \nen cours", image: "/images/ic_send_mail.png" },
+    { id: 4, title: "Notifications", image: "/images/ic_notification.png" },
+    { id: 5, title: "Visite guidée", image: "/images/icon_visite_guidee.png" }
 ];
 
 // Initialize the slide menu

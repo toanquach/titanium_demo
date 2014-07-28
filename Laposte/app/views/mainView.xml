@@ -2,23 +2,17 @@
 	<NavigationWindow id="nav" platform="ios">
 		<Window id="MainWindow" backgroundColor="white" barColor="#FFC526"  title="Laposte" translucent="false">
 			<Require type="widget" src="com.mcongrove.slideMenu" id="SlideMenu" />
-<<<<<<< HEAD
-=======
-			
->>>>>>> f3e954ee2b1b9d3a52b41c9dcdc1d6dd5a89ec30
 			<View id="AppWrapper">
 				<!-- Content Goes Here -->
 			</View>
 		</Window>
 	</NavigationWindow>
-<<<<<<< HEAD
-	
+
 	<Window id="MainWindow" platform="android" backgroundColor="white" barColor="#FFC526"  title="Laposte" translucent="false">
 		<Require type="widget" src="com.mcongrove.slideMenu" id="SlideMenu" />
 		<View id="AppWrapper">
 			<!-- Content Goes Here -->
 		</View>
 	</Window>
-=======
->>>>>>> f3e954ee2b1b9d3a52b41c9dcdc1d6dd5a89ec30
+
 </Alloy>

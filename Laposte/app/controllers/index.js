@@ -19,6 +19,7 @@ setTimeout(function()
 {
     menu(null);
  	$.index.close();  
+ 	$.spiner.stop();
 },2000);
 
 

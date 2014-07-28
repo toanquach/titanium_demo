@@ -8,6 +8,8 @@ var nodes = [
     { id: 5, title: "Visite guidée", image: "/images/icon_visite_guidee.png" }
 ];
 
+var isMenuClose = true;
+
 // Initialize the slide menu
 $.SlideMenu.init({
     nodes: nodes,
@@ -27,7 +29,8 @@ $.SlideMenu.Nodes.addEventListener("click", handleMenuClick);
 function handleMenuClick(_event) {
     if(typeof _event.row.id !== "undefined") {
         // Open the corresponding controller
-        openScreen(_event.row.id);
+        //openScreen(_event.row.id);
+        Ti.App.Info(_event.row,id);
     }
 }
 
@@ -62,8 +65,36 @@ function closeMenu() {
 $.AppWrapper.addEventListener("swipe", function(_event) {
     if(_event.direction == "right") {
         openMenu();
+        isMenuClose = false;
     } else if(_event.direction == "left") {
         closeMenu();
+        isMenuClose = true;
+    }
+});
+
+
+/*
+ * Set up left nav bar for NAV
+ */
+var menuButton = Ti.UI.createButton({
+    backgroundImage :'images/menu_black.png', //menu_black.png
+    toggle:false // Custom property for menu toggle
+});
+
+if (!OS_ANDROID) {
+	$.MainWindow.setLeftNavButton(menuButton);	
+};
+
+
+// Add event for menu button
+menuButton.addEventListener('click', function(e)
+{
+	 if(isMenuClose == true) {
+        openMenu();
+        isMenuClose = false;
+    } else if(isMenuClose == false) {
+        closeMenu();
+        isMenuClose = true;
     }
 });
 
@@ -72,3 +103,4 @@ if(Titanium.Platform.Android)
 	var mainMenuView = Alloy.createController('mainMenuView').getView();
 	$.AppWrapper.add(mainMenuView);
 }
+

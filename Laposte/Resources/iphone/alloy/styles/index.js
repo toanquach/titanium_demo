@@ -1,0 +1,1 @@
+module.exports = [{"isClass":true,"priority":10000.001,"key":"container","style":{backgroundColor:"white",}},{"isId":true,"priority":100000.0011,"key":"splashImage","style":{}},{"isId":true,"priority":100000.0012,"key":"spiner","style":{}}];

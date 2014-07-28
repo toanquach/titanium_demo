@@ -1,0 +1,427 @@
+{
+    "manifest": {
+        "md5": "7f5cb74af5d7f4b82200738fdbdc5a45",
+        "menu": [
+                 {
+                 "item": {"id":"1", "title": [{"locale": "FR","text": "Préparer un envoi"}]},
+                 "level":"0",
+                 "parent":"",
+                 "targetlevel":"1",
+                 "module": "mod2" ,
+                 "appid":"app_2",
+                 "color": "",
+                 "jsonnode":"",
+                 "background-color": "#015998",
+                 "url":"views/testAddressForm.html",
+                 "display":"custom",
+                 "moneid":"pre",
+                 "icone": "preparer.png"
+                 },{
+                 "item": {"id":"9", "title": [{"locale": "FR","text": "Recherche de code postal ou commune"}]},
+                 "level":"1",
+                 "parent":"1",
+                 "targetlevel":"",
+                 "module": "" ,
+                 "color": "",
+                 "jsonnode":"",
+                 "background-color": "#015998",
+                 "url":"views/searchZipcodeCity.html",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "preparer_un_envoi_postal.png"
+                 },{
+                 "item": {"id":"10", "title": [{"locale": "FR","text": "Test d'adresse"}]},
+                 "level":"1",
+                 "parent":"1",
+                 "targetlevel":"",
+                 "module": "" ,
+                 "color": "",
+                 "jsonnode":"",
+                 "background-color": "#015998",
+                 "url":"views/testAddressForm.html",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "preparer_un_envoi_map.png"
+                 },{
+                 "item": {"id":"11", "title": [{"locale": "FR","text": "Conseils pour l'emballage"}]},
+                 "level":"1",
+                 "parent":"1",
+                 "targetlevel":"",
+                 "module": "" ,
+                 "color": "#5a5a5a",
+                 "jsonnode":"",
+                 "background-color": "#E8E8E8",
+                 "url":"views/packingAdvices.html",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "la_poste_info_icon.png"
+                 },{
+                 "item": {"id":"12", "title": [{"locale": "FR","text": "Règles pour l'adresse"}]},
+                 "level":"1",
+                 "parent":"1",
+                 "targetlevel":"",
+                 "module": "" ,
+                 "color": "#5a5a5a",
+                 "jsonnode":"",
+                 "background-color": "#E8E8E8",
+                 "url":"views/addressRules.html",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "la_poste_info_icon.png"
+                 },
+                 {
+                 "item": {"id":"2", "title": [{"locale": "FR","text": "Suivre un envoi"}]},
+                 "level":"0",
+                 "parent":"",
+                 "targetlevel":"1",
+                 "module": "mod3" ,
+                 "appid":"app_3",
+                 "color": "",
+                 "jsonnode":"",
+                 "background-color": "#22AF47",
+                 "url":"views/packageTracking.html",
+                 "display":"custom",
+                 "moneid":"suv",
+                 "icone": "suivre.png"
+                 },{
+                 "item": {"id":"13", "title": [{"locale": "FR","text": "Suivi d'envoi"}]},
+                 "level":"1",
+                 "parent":"2",
+                 "targetlevel":"",
+                 "module": "" ,
+                 "color": "",
+                 "jsonnode":"",
+                 "background-color": "#22AF47",
+                 "url":"views/packageTracking.html",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "suivi_search_icon.png"
+                 },{
+                 "item": {"id":"14", "title": [{"locale": "FR","text": "Les 5 solutions Colissimo"}]},
+                 "level":"1",
+                 "parent":"2",
+                 "targetlevel":"",
+                 "module": "" ,
+                 "color": "#5a5a5a",
+                 "jsonnode":"",
+                 "background-color": "#E8E8E8",
+                 "url":"views/livraisonColissimo.html",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "la_poste_info_icon.png"
+                 },{
+                 "item": {"id":"15", "title": [{"locale": "FR","text": "Expédier un envoi suivi"}]},
+                 "level":"1",
+                 "parent":"999",
+                 "targetlevel":"",
+                 "module": "" ,
+                 "color": "#5a5a5a",
+                 "jsonnode":"",
+                 "background-color": "#E8E8E8",
+                 "url":"views/sendWithTracking.html",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "la_poste_info_icon.png"
+                 },
+                 {
+                 "item": {"id":"4", "title": [{"locale": "FR","text": "Localiser un bureau"}]},
+                 "level":"0",
+                 "parent":"",
+                 "targetlevel":"1",
+                 "module": "mod5" ,
+                 "appid":"app_5",
+                 "color": "",
+                 "jsonnode":"",
+                 "background-color": "#0192D5",
+                 "icone": "localiser.png",
+                 "display":"custom",
+                 "moneid":"loc",
+                 "url":"views/map.html"
+                 },
+                 {
+                 "item": {"id":"9", "title": [{"locale": "FR","text": "MES FAVORIS"}]},
+                 "level":"1",
+                 "parent":"4",
+                 "targetlevel":"",
+                 "module": "" ,
+                 "url":{"action":"openfavoris","params":{"typeFavorite":"LOC"}},
+                 "color": "#5a5a5a",
+                 "jsonnode":"",
+                 "background-color": "#E8E8E8",
+                 "display":"switchview",
+                 "moneid":"",
+                 "icone": "sub_icon_0.png"
+                 },
+                 {
+                 "item": {"id":"16", "title": [{"locale": "FR","text": "Bureau de Poste"}]},
+                 "level":"1",
+                 "parent":"4",
+                 "targetlevel":"",
+                 "module": "" ,
+                 "url":"views/map.html",
+                 "color": "",
+                 "jsonnode":"",
+                 "background-color": "#0192D5",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "sub_icon_1.png"
+                 },
+                 {
+                 "item": {"id":"17", "title": [{"locale": "FR","text": "Carte Personalisée"}]},
+                 "level":"0",
+                 "parent":"",
+                 "targetlevel":"1",
+                 "module": "mod7",
+                 "appid":"app_7",
+                 "color": "",
+                 "background-color": "#9808D1",
+                 "url":"",
+                 "jsonnode":"",
+                 "display":"custom",
+                 "moneid":"",
+                 "icone": "carteperso.png"
+                 },
+                 {
+                 "item": {"id":"18", "title": [{"locale": "FR","text": "Commencer la personnalisation"}]},
+                 "level":"1",
+                 "parent":"17",
+                 "targetlevel":"",
+                 "module": "mod7",
+                 "appid":"app_7",
+                 "color": "",
+                 "background-color": "#9808D1",
+                 "url":"views/menuFormatPicture.html",
+                 "jsonnode":"",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "carteperso_commence"
+                 },
+                 {
+                 "item": {"id":"19", "title": [{"locale": "FR","text": "Comment ça marche"}]},
+                 "level":"1",
+                 "parent":"17",
+                 "targetlevel":"",
+                 "module": "",
+                 "appid":"",
+                 "color": "#5a5a5a",
+                 "background-color": "#E8E8E8",
+                 "url":"views/didacticiel.html",
+                 "jsonnode":"",
+                 "display":"popin",
+                 "moneid":"",
+                 "icone": "info.png"
+                 },
+                 {
+                 "item": {"id":"20", "title": [{"locale": "FR","text": "FAQ"}]},
+                 "level":"1",
+                 "parent":"17",
+                 "targetlevel":"",
+                 "module": "",
+                 "appid":"",
+                 "color": "#5a5a5a",
+                 "background-color": "#E8E8E8",
+                 "url":"views/faqQuestions.html",
+                 "jsonnode":"",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "info.png"
+                 },
+                 {
+                 "item": {"id":"5", "title": [{"locale": "FR","text": "Lexique"}]},
+                 "level":"0",
+                 "parent":"",
+                 "targetlevel":"",
+                 "module": "mod6" ,
+                 "appid":"app_6",
+                 "color": "",
+                 "background-color": "#EF4238",
+                 "url":"views/lexicon.html",
+                 "display":"custom",
+                 "jsonnode":"",
+                 "moneid":"lex",
+                 "icone": "lexique.png"
+                 },
+                 {
+                 "item": {"id":"7", "title": [{"locale": "FR","text": "Autres applications"}]},
+                 "level":"0",
+                 "parent":"",
+                 "targetlevel":"service2",
+                 "module": "",
+                 "appid":"",
+                 "color": "#5a5a5a",
+                 "background-color": "#E8E8E8",
+                 "url":"",
+                 "jsonnode":"aplicationsservices",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "aplication_services.png"
+                 },{
+                 "item": {"id":"8", "title": [{"locale": "FR","text": "Mentions légales"}]},
+                 "level":"0",
+                 "parent":"",
+                 "targetlevel":"service2",
+                 "module": "",
+                 "appid":"",
+                 "color": "#5a5a5a",
+                 "background-color": "#E8E8E8",
+                 "url":"",
+                 "jsonnode":"CGU",
+                 "display":"navigation",
+                 "moneid":"",
+                 "icone": "info.png"
+                 }],
+        "modules": {
+            "module": [
+                       {
+                       "md5": " 6ffae754d2f2d191f93cae003fc86f5a",
+                       "ref": "mod5",
+                       "download": "http://webservice.laposte.fr/mobile/modules/app_5.zip",
+                       "index": "",
+                       "navcolor": "#0192D5",
+                       "backgroundcolor": "#0192D5",
+                       "title": "Localiser",
+                       "status": "1"
+                       },{
+                       "md5": " 6ffae754d2f2d191f93cae003fc86f5a",
+                       "ref": "mod2",
+                       "download": "http://webservice.laposte.fr/mobile/modules/app_2.zip",
+                       "index": "",
+                       "navcolor": "#015998",
+                       "backgroundcolor": "#015998",
+                       "title": "Localiser",
+                       "status": "1"
+                       },{
+                       "md5": " 6ffae754d2f2d191f93cae003fc86f5a",
+                       "ref": "mod3",
+                       "download": "http://webservice.laposte.fr/mobile/modules/app_3.zip",
+                       "index": "",
+                       "navcolor": "#22AF47",
+                       "backgroundcolor": "#22AF47",
+                       "title": "US",
+                       "status": "1"
+                       },{
+                       "md5": " 6ffae754d2f2d191f93cae003fc86f5a",
+                       "ref": "mod6",
+                       "download": "http://webservice.laposte.fr/mobile/modules/app_6.zip",
+                       "index": "",
+                       "navcolor": "#EF4238",
+                       "backgroundcolor": "#EF4238",
+                       "title": "US",
+                       "status": "1"
+                       },{
+                       "md5": " 6ffae754d2f2d191f93cae003fc85490a",
+                       "ref": "mod7",
+                       "download": "http://mobile.laposte.digitas.fr/mobile/modules/ipad/modules/app_7.zip",
+                       "index": "",
+                       "navcolor": "#9808D1",
+                       "backgroundcolor": "#9808D1",
+                       "title": "Carte Personnalisé",
+                       "status": "1"
+                       }]
+        },
+        "aplicationsservices": {
+            "md5": " 6ffae754d2f2d191f93cae003fc86f5a",
+            "sections": [{
+                         "id": "0",
+                         "title": "APPLICATIONS LA POSTE"
+                         },
+                         {
+                         "id": "1",
+                         "title": "APPLICATIONS LA BANQUE POSTALE"
+                         }],
+            "app": [{
+                    "id": "0",
+                    "section": "0",
+                    "title": "Digiposte",
+                    "subtitle": "Avec Digiposte, centralisez vos documents dans votre coffre-fort numérique !",
+                    "desc": "Digiposte est un service gratuit de coffre-fort numérique proposé par La Poste qui permet de centraliser l’ensemble de vos documents administratifs et personnels dans un espace unique.\n\nDigiposte vous permet de recevoir des documents originaux numériques (relevés de comptes bancaires, factures, bulletins de salaires, …), de les classer, les archiver et les partager en toute sécurité. Vous bénéficiez également de 3 Go de stockage gratuit pour tous vos documents personnels.\n\nAvec l’application Digiposte, accédez très facilement à vos contenus digitaux n’importe où et à tout moment : vos documents personnels (papiers d’identité, attestations, photos, etc.) sont toujours à portée de main lors de vos déplacements et restent accessibles sur votre iPhone.",
+                    "appstore": "1",
+                    "googleplay": "0",
+                    "store_url": "https://itunes.apple.com/fr/app/digiposte/id530439437?mt=8",
+                    "icone_url": "http://a5.mzstatic.com/us/r30/Purple/v4/c5/6d/96/c56d96e7-7a81-d882-5710-a021536b398f/mzl.iykmtvke.175x175-75.jpg"
+            		},
+            		{
+                    "id": "1",
+                    "section": "999",
+                    "title": "Digishoot",
+                    "subtitle": "Avec Digishoot, certifiez vos photos et archivez-les dans Digiposte !",
+                    "desc": "Digishoot est un service édité par La Poste qui permet d’apposer sur les photographies prises avec votre Smartphone :\nla date et l'heure de la prise de vue, les données de géolocalisation : situation géographique de la prise de vue, un cryptage permettant de certifier l'authenticité de la photo, attestant qu’elle n'a pas subi de retouche.\nArchivez ensuite vos photos certifiées dans votre coffre-fort\nDigiposte, elles seront stockées en toute sécurité et restent disponibles à tout moment depuis tout ordinateur sur www.laposte.fr/digiposte et depuis votre Smartphone sur l’application mobile Digiposte.\nAvec le service Digishoot, soyez protégé en cas de vol de biens de valeur, d'un dégât accidentel à votre domicile ; Digishoot est également pratique pour effectuer un état des lieux, un constat, etc…\n\nVos photos certifiées vous aident à prouver votre bonne foi et à enrichir, par exemple, vos dossiers auprès de vos assurances face à tous les tracas de la vie quotidienne.",
+                    "appstore": "1",
+                    "googleplay": "0",
+                    "store_url": "https://itunes.apple.com/fr/app/digishoot/id421838805?mt=8",
+                    "icone_url": "http://a1.mzstatic.com/us/r30/Purple6/v4/a9/89/e2/a989e257-164c-73ef-d600-887564ab5e2c/mzl.iwkneuto.175x175-75.jpg"
+            		},
+            		{
+                    "id": "2",
+                    "section": "0",
+                    "title": "Chronopost",
+                    "subtitle": "Suivez vos envois et trouvez le point de retrait le plus proche.",
+                    "desc": "L'appli Chronopost est gratuite. Vous pouvez la télécharger librement depuis votre mobile  Apple.\nElle vous permet de suivre vos colis très simplement, en saisissant le numéro de l'envoi.\nUne géolocalisation vous est également proposée pour trouver les points de proximité les plus proches (Agence Chronopost, Bureau de poste et Relais PickUp).",
+                    "appstore": "1",
+                    "googleplay": "0",
+                    "store_url": "https://itunes.apple.com/fr/app/chronopost/id500640674?mt=8",
+                    "icone_url": "http://a1.mzstatic.com/us/r30/Purple4/v4/e6/36/23/e6362335-7860-8682-126f-2c7d465cbebb/mzl.zivnzyua.175x175-75.jpg"
+            		},
+					{
+                    "id": "3",
+                    "section": "0",
+                    "title": "MaCartaMoi",
+                    "subtitle": "Envoyez une carte personnalisée !",
+                    "desc": "Avec MaCartaMoi, envoyez de vraies cartes personnalisées depuis votre téléphone !\nMaCartaMoi est un service édité par La Poste qui vous permet de transformer vos photos en carte (format 10 x 15 cm) et de les envoyer à vos proches.\nPrenez une photo avec votre téléphone ou utilisez une présente dans votre album.\nEcrivez votre message et signez la carte.\nRenseignez l’adresse du destinataire.\nLa Poste l’imprime (carte 10 x 15 cm) et la distribue à n’importe quelle adresse dans le monde.\nPour les vœux, un anniversaire, une naissance, en vacances… ou juste pour envoyer un message, il y a toujours une bonne occasion pour faire plaisir à ses proches ! ",
+                    "appstore": "1",
+                    "googleplay": "0",
+                    "store_url": "https://itunes.apple.com/fr/app/macartamoi/id407947855?mt=8",
+                    "icone_url": "http://a5.mzstatic.com/us/r30/Purple/v4/59/6c/16/596c166f-43d9-cc6d-52de-ec073ef36a23/mzl.bpdwelbr.175x175-75.jpg"
+            		},
+            		{
+                    "id": "4",
+                    "section": "1",
+                    "title": "Accès Compte",
+                    "subtitle": "Consulter et gérer vos comptes de La Banque Postale.",
+                    "desc": "Accès Compte est une application gratuite destinée aux clients de La Banque Postale, éligibles à la gestion de comptes.\n\nAccès Compte vous permet de vérifier la situation de votre compte à tout moment (comptes courants, comptes d'épargne, encours de prêts immobiliers...), de réaliser des virements ou encore de localiser le bureau de Poste le plus proche. L'application vous permet également de communiquer avec La Banque Postale en toute sécurité et d'accéder aux informations de première urgence.",
+                    "appstore": "1",
+                    "googleplay": "0",
+                    "store_url": "https://itunes.apple.com/fr/app/acces-compte/id409362880?mt=8",
+                    "icone_url": "http://a5.mzstatic.com/us/r30/Purple6/v4/19/f9/b2/19f9b20b-8862-c697-b937-da4cb0e7903c/mzl.prmttltl.175x175-75.jpg"
+            		},
+					{
+                    "id": "5",
+                    "section": "1",
+                    "title": "Prépayé",
+                    "subtitle": "Accédez à la gestion de votre carte prépayée, partout, à tout moment.",
+                    "desc": "L’application mobile Prépayé, une solution simple, gratuite, et sécurisée qui vous permet de gérer votre carte prépayée depuis votre smartphone.\nAvec Prépayé, vous consultez le solde de votre carte et les dernières opérations réalisées, activez, rechargez et paramétrez votre carte depuis un smartphone à tout moment où que vous soyez.\n\nPourquoi utiliser l’application Prépayé ?\n- C’est pratique : gérez votre carte prépayée partout et à tout moment.\n- C’est simple : le mode de fonctionnement de l’application mobile est le même que celui de l’espace personnel (web) auquel vous êtes habitués.\n- C’est rassurant : En cas de besoin, vous pouvez contacter le Service Clients Cartes Prépayées ou mettre la carte en opposition d’un simple « clic to call ».\n- C’est sécurisé : pour accéder à l’espace personnel sur l’application mobile, vous saisissez votre identifiant et votre mot de passe personnel",
+                    "appstore": "1",
+                    "googleplay": "0",
+                    "store_url": "https://itunes.apple.com/fr/app/prepaye-par-la-banque-postale./id814322585?mt=8",
+                    "icone_url": "http://a5.mzstatic.com/us/r30/Purple6/v4/19/f9/b2/19f9b20b-8862-c697-b937-da4cb0e7903c/mzl.prmttltl.175x175-75.jpg"
+            		},
+            		{
+                    "id": "6",
+                    "section": "1",
+                    "title": "Paylib",
+                    "subtitle": "Payez vos achats en ligne simplement et avec plus de confiance.",
+                    "desc": "Paylib est une solution de paiement simple et sécurisée qui vous permet de réaliser vos achats en ligne sans plus jamais saisir les données de votre carte bancaire. Vous pouvez activer gratuitement et simplement votre compte Paylib en téléchargeant l'application Paylib de La Banque Postale.\n\nAvec Paylib, vous réglez vos achats depuis un ordinateur, une tablette ou un smartphone sur tous les sites partenaires affichant l'icône Paylib. Il vous suffit de sélectionner Paylib sur la page de paiement du e-commerçant et de valider votre achat directement dans votre application, en saisissant votre code personnel.\nTous vos paiements sont consultables dans votre application et sur votre relevé de compte.",
+                    "appstore": "1",
+                    "googleplay": "0",
+                    "store_url": "https://itunes.apple.com/fr/app/paylib-par-la-banque-postale/id699406767?mt=8",
+                    "icone_url": "http://a2.mzstatic.com/us/r30/Purple/v4/1d/54/d1/1d54d14a-0c44-098e-dee2-b815587adacf/mzl.yrgvgooh.175x175-75.jpg"
+            		}]
+        },
+        "references": {
+            "file": [{
+                     "md5": " 6ffae754d2f2d191f93cae003fc86f5a",
+                     "link": "http://mobile.laposte.digitas.fr/mobile/modules/ipad/modules/common.zip"
+                     }]
+        },
+        "monetisation":{
+            "bannieres":[
+                         {"id":"interstitiel", "pubid":"10788"},
+                         {"id":"burger", "pubid":"10797"},
+                         {"id":"loc", "pubid":"10787"},
+                         {"id":"suv", "pubid":"10794"},
+                         {"id":"pre", "pubid":"10795"},
+                         {"id":"lex", "pubid":"10796"}]
+        }
+    }
+}
+

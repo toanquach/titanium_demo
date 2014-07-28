@@ -8,56 +8,33 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function createSection() {
-        var section = Ti.UI.createTableViewSection();
-        var customView = Ti.UI.createView({
-            height: "auto",
-            backgroundColor: "#EEE",
-            backgroundGradient: {
-                type: "linear",
-                startPoint: {
-                    x: "0%",
-                    y: "0%"
-                },
-                endPoint: {
-                    x: "0%",
-                    y: "100%"
-                },
-                colors: [ {
-                    color: "#EEE",
-                    offset: 0
-                }, {
-                    color: "#CCC",
-                    offset: 1
-                } ]
-            }
-        });
-        var customLabel = Ti.UI.createLabel({
-            top: 8,
-            bottom: 8,
-            left: 10,
-            right: 10,
-            height: "auto",
-            text: "HEADER",
-            font: {
-                fontSize: 12,
-                fontWeight: "bold"
-            },
-            color: "#666666"
-        });
-        customView.add(customLabel);
-        section.headerView = customView;
-        for (var j = 1; 4 > j; j++) {
-            var args = {
-                title: "Row " + j,
-                customView: "view" + j,
-                image: "images/ic_search.png"
-            };
-            section.add(Alloy.createController("menurow", args).getView());
-        }
-        return section;
+    function handleMenuClick(_event) {
+        "undefined" != typeof _event.row.id && openScreen(_event.row.id);
     }
-    function rowSelect() {}
+    function openMenu() {
+        $.AppWrapper.animate({
+            left: "200dp",
+            duration: 250,
+            curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+        $.SlideMenu.Wrapper.animate({
+            left: "0dp",
+            duration: 250,
+            curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+    }
+    function closeMenu() {
+        $.AppWrapper.animate({
+            left: "0dp",
+            duration: 250,
+            curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+        $.SlideMenu.Wrapper.animate({
+            left: "-200dp",
+            duration: 250,
+            curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "mainView";
     if (arguments[0]) {
@@ -67,75 +44,48 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
-    $.__views.win = Ti.UI.createWindow({
-        id: "win"
+    $.__views.MainWindow = Ti.UI.createWindow({
+        id: "MainWindow"
     });
-    $.__views.win && $.addTopLevelView($.__views.win);
-    $.__views.ds = Alloy.createWidget("ds.slideMenu", "widget", {
-        id: "ds",
-        __parentSymbol: $.__views.win
+    $.__views.MainWindow && $.addTopLevelView($.__views.MainWindow);
+    $.__views.SlideMenu = Alloy.createWidget("com.mcongrove.slideMenu", "widget", {
+        id: "SlideMenu",
+        __parentSymbol: $.__views.MainWindow
     });
-    $.__views.ds.setParent($.__views.win);
+    $.__views.SlideMenu.setParent($.__views.MainWindow);
+    $.__views.AppWrapper = Ti.UI.createView({
+        backgroundColor: "white",
+        id: "AppWrapper"
+    });
+    $.__views.MainWindow.add($.__views.AppWrapper);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var leftData = [];
-    var rightData = [];
-    for (var i = 0; 4 > i; i++) {
-        leftData[i] = createSection();
-        rightData[i] = createSection();
-    }
-    var menuTitles = [ {
-        title: "Accueil"
+    var nodes = [ {
+        menuHeader: "My Tabs",
+        id: 0,
+        title: "Home",
+        image: "/images/home.png"
     }, {
-        title: "Bureaux et relais favoris"
+        id: 1,
+        title: "Contact",
+        image: "/images/phone.png"
     }, {
-        title: "Recherches memorisees"
-    }, {
-        title: "Produits preferes"
-    }, {
-        title: "Suivi d_envoi en cours"
-    }, {
-        title: "Notifications"
+        id: 2,
+        title: "Settings",
+        image: "/images/gear.png"
     } ];
-    var numCell = menuTitles.length;
-    var cells = [];
-    for (var i = 0; numCell > i; i++) {
-        var row = Ti.UI.createTableViewRow({
-            height: Ti.UI.SIZE,
-            minHeight: 40
-        });
-        row.title = menuTitles[i].title;
-        cells.push(row);
-    }
-    $.ds.leftTableView.data = cells;
-    var currentView = Alloy.createController("view1").getView();
-    $.ds.contentview.add(currentView);
-    $.ds.leftTableView.addEventListener("click", function(e) {
-        alert(e.index);
-        rowSelect(e);
-        $.ds.toggleLeftSlider();
-    });
-    Ti.App.addEventListener("sliderToggled", function(e) {
-        if ("right" == e.direction) {
-            $.ds.leftMenu.zIndex = 2;
-            $.ds.rightMenu.zIndex = 1;
-        } else if ("left" == e.direction) {
-            $.ds.leftMenu.zIndex = 1;
-            $.ds.rightMenu.zIndex = 2;
+    $.SlideMenu.init({
+        nodes: nodes,
+        color: {
+            headingBackground: "#000",
+            headingText: "#FFF"
         }
     });
-    var IOS7Plus = function() {
-        var version = Titanium.Platform.version.split(".");
-        var major = parseInt(version[0], 10);
-        if (major >= 7) return true;
-        return false;
-    };
-    var iOS7 = IOS7Plus();
-    var theTop = iOS7 ? 20 : 0;
-    $.win.top = theTop;
-    "iphone" === Ti.Platform.osname ? $.win.open({
-        transition: Titanium.UI.ANIMATION_CURVE_LINEAR
-    }) : $.win.open();
+    $.SlideMenu.setIndex(0);
+    $.SlideMenu.Nodes.addEventListener("click", handleMenuClick);
+    $.AppWrapper.addEventListener("swipe", function(_event) {
+        "right" == _event.direction ? openMenu() : "left" == _event.direction && closeMenu();
+    });
     _.extend($, exports);
 }
 

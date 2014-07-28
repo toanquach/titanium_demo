@@ -1,5 +1,9 @@
 <Alloy>
-	<Window id="win">
-		<Require type="widget" src="ds.slideMenu" id="ds"/>
-	</Window>
+    <Window id="MainWindow">
+        <Require type="widget" src="com.mcongrove.slideMenu" id="SlideMenu" />
+
+        <View id="AppWrapper">
+            <!-- Content Goes Here -->
+        </View>
+    </Window>
 </Alloy>

@@ -45,9 +45,12 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.MainWindow = Ti.UI.createWindow({
-        id: "MainWindow"
+        id: "MainWindow",
+        backgroundColor: "white",
+        barColor: "#FFC526",
+        title: "Laposte",
+        translucent: "false"
     });
-    $.__views.MainWindow && $.addTopLevelView($.__views.MainWindow);
     $.__views.SlideMenu = Alloy.createWidget("com.mcongrove.slideMenu", "widget", {
         id: "SlideMenu",
         __parentSymbol: $.__views.MainWindow
@@ -58,6 +61,11 @@ function Controller() {
         id: "AppWrapper"
     });
     $.__views.MainWindow.add($.__views.AppWrapper);
+    $.__views.nav = Ti.UI.iOS.createNavigationWindow({
+        window: $.__views.MainWindow,
+        id: "nav"
+    });
+    $.__views.nav && $.addTopLevelView($.__views.nav);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var nodes = [ {

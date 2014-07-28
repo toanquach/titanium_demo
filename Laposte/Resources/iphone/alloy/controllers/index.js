@@ -46,8 +46,8 @@ function Controller() {
         repeat: 100
     });
     var menu = function() {
-        var menuView = Alloy.createController("mainView").getView();
-        menuView.open();
+        var mainView = Alloy.createController("mainView").getView();
+        mainView.open();
     };
     setTimeout(function() {
         menu(null);

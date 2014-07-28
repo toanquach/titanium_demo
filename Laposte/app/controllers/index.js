@@ -10,9 +10,9 @@ var a = Ti.UI.createAnimation({
 
 // --------------------------------------------- 
 var menu = function(e){
-	var menuView = Alloy.createController('mainView').getView();	
+	var mainView = Alloy.createController('mainView').getView();	
 
-	menuView.open();
+	mainView.open();
 };
 
 setTimeout(function()

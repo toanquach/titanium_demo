@@ -1,0 +1,4 @@
+<Alloy>
+	<TableView id="mainMenuTable" width="320" backgroundColor="transparent">
+	</TableView>
+</Alloy>

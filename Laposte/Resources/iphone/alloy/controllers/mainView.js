@@ -30,7 +30,7 @@ function Controller() {
             curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
         $.SlideMenu.Wrapper.animate({
-            left: "-250dp",
+            left: "-320dp",
             duration: 250,
             curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
@@ -75,11 +75,11 @@ function Controller() {
         image: "/images/ic_home.png"
     }, {
         id: 1,
-        title: "Bureaux \nfavoris",
+        title: "Bureaux favoris",
         image: "/images/ic_star.png"
     }, {
         id: 2,
-        title: "Calculs de tarifs mémorisés",
+        title: "Calculs de \ntarifs mémorisés",
         image: "/images/ic_search.png"
     }, {
         id: 3,

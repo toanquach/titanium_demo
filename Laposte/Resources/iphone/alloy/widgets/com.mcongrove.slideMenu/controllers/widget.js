@@ -57,19 +57,29 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.Wrapper = Ti.UI.createView({
-        width: "250dp",
+        width: "320dp",
         top: "0dp",
-        left: "-250dp",
-        backgroundColor: "#FFC526",
+        left: "-320dp",
         id: "Wrapper"
     });
     $.__views.Wrapper && $.addTopLevelView($.__views.Wrapper);
+    $.__views.shadowImage = Ti.UI.createImageView({
+        contentMode: "aspectfill",
+        id: "shadowImage",
+        image: "/images/bgd_line_shadow_H.png",
+        left: "250dp",
+        width: "15dp",
+        top: "0dp"
+    });
+    $.__views.Wrapper.add($.__views.shadowImage);
     $.__views.Nodes = Ti.UI.createTableView({
         top: "0dp",
         backgroundColor: "#FFC526",
         separatorColor: "#222",
         separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.SINGLE_LINE,
-        id: "Nodes"
+        id: "Nodes",
+        width: "250dp",
+        left: "0dp"
     });
     $.__views.Wrapper.add($.__views.Nodes);
     exports.destroy = function() {};
@@ -87,7 +97,7 @@ function Controller() {
             _params.nodes[i].menuHeader && currentSection++;
             var tab = Ti.UI.createTableViewRow({
                 id: _params.nodes[i].id,
-                height: "47dp",
+                height: "67dp",
                 backgroundcolor: "#111",
                 backgroundSelectedColor: "#222",
                 selectedBackgroundColor: "#222"
@@ -97,10 +107,10 @@ function Controller() {
                 top: "0dp",
                 left: "47dp",
                 right: "13dp",
-                height: "46dp",
+                height: "67dp",
                 font: {
-                    fontSize: "16dp",
-                    fontFamily: "HelveticaNeue-Light"
+                    fontSize: "20dp",
+                    fontFamily: "DINPro-Regular"
                 },
                 color: "#222",
                 touchEnabled: false
@@ -110,8 +120,9 @@ function Controller() {
                     image: _params.nodes[i].image,
                     width: "21dp",
                     height: "21dp",
-                    top: "13dp",
+                    top: "23dp",
                     left: "13dp",
+                    contentMode: "aspectfill",
                     touchEnabled: false,
                     preventDefaultImage: true
                 });
@@ -138,6 +149,7 @@ function Controller() {
         left: 0,
         right: 0
     });
+    $.shadowImage.height = $.Wrapper.height;
     _.extend($, exports);
 }
 

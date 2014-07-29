@@ -1,5 +1,6 @@
 <Alloy>
 	<View id="Wrapper">
-		<TableView id="Nodes" />
+		<ImageView id="shadowImage" image="/images/bgd_line_shadow_H.png" left="250dp" width="15dp" top="0dp"></ImageView>
+		<TableView id="Nodes" width="250dp" left="0dp" />
 	</View>
 </Alloy>

@@ -58,8 +58,9 @@ if (readFile.exists())
 		
 		var label = Ti.UI.createLabel({left:80, height:30, top:25, width:230});
 		label.text = rowTitle.text;
+		label.font = "{fontFamily: 'DINPro-Regular', fontSize: 44}";
 		customView.add(label);
-		label.font = " {fontFamily: 'DINPro-Regular', fontSize: 24  }";
+		
 		// Add custom view
 		row.add(customView);
 		data.push(row);

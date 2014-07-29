@@ -69,8 +69,8 @@ function Controller() {
                 width: 230
             });
             label.text = rowTitle.text;
+            label.font = "{fontFamily: 'DINPro-Regular', fontSize: 44}";
             customView.add(label);
-            label.font = " {fontFamily: 'DINPro-Regular', fontSize: 24  }";
             row.add(customView);
             data.push(row);
         }

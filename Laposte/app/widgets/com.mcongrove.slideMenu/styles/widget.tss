@@ -1,8 +1,8 @@
 "#Wrapper": {
-	width: "250dp",
+	width: "320dp",
 	top: "0dp",
-	left: "-250dp",
-	backgroundColor: "#FFC526"
+	left: "-320dp",
+	//backgroundColor: "#FFC526"
 },
 "#Nodes": {
 	top: "0dp",
@@ -10,6 +10,6 @@
 	separatorColor: "#222",
 	separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.SINGLE_LINE
 },
-".row_normal" : {
-	color : "#CCC"
+"#shadowImage" : {
+	contentMode: 'aspectfill'
 }

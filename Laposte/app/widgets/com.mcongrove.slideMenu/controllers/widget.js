@@ -35,7 +35,7 @@ $.init = function(_params) {
 
 		var tab = Ti.UI.createTableViewRow({
 			id: _params.nodes[i].id,
-			height: "47dp",
+			height: "67dp",
 			backgroundcolor: "#111",
 			backgroundSelectedColor: "#222",
 			selectedBackgroundColor: "#222"
@@ -46,10 +46,10 @@ $.init = function(_params) {
 			top: "0dp",
 			left: "47dp",
 			right: "13dp",
-			height: "46dp",
+			height: "67dp",
 			font: {
-				fontSize: "16dp",
-				fontFamily: "HelveticaNeue-Light"
+				fontSize: "20dp",
+				fontFamily: "DINPro-Regular"
 			},
 			color: "#222",
 			touchEnabled: false
@@ -60,8 +60,9 @@ $.init = function(_params) {
 				image: _params.nodes[i].image,
 				width: "21dp",
 				height: "21dp",
-				top: "13dp",
+				top: "23dp",
 				left: "13dp",
+				contentMode: 'aspectfill',
 				touchEnabled: false,
 				preventDefaultImage: true
 			});
@@ -169,3 +170,5 @@ if(OS_IOS && parseInt(Ti.Platform.version.split(".")[0], 10) >= 7) {
 	//$.Nodes.top = "20dp";
 	$.Nodes.setSeparatorInsets({left:0, right:0});
 }
+
+$.shadowImage.height = $.Wrapper.height;

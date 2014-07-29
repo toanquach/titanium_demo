@@ -9,10 +9,9 @@ module.exports = [ {
     priority: 100000.001,
     key: "Wrapper",
     style: {
-        width: "250dp",
+        width: "320dp",
         top: "0dp",
-        left: "-250dp",
-        backgroundColor: "#FFC526"
+        left: "-320dp"
     }
 }, {
     isId: true,
@@ -23,5 +22,12 @@ module.exports = [ {
         backgroundColor: "#FFC526",
         separatorColor: "#222",
         separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.SINGLE_LINE
+    }
+}, {
+    isId: true,
+    priority: 100000.0012,
+    key: "shadowImage",
+    style: {
+        contentMode: "aspectfill"
     }
 } ];

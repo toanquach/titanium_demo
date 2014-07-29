@@ -1,8 +1,8 @@
 // Create our node items
 var nodes = [
     { menuHeader: "", id: 0, title: "Accueil", image: "/images/ic_home.png" },
-    { id: 1, title: "Bureaux \nfavoris", image: "/images/ic_star.png" },
-    { id: 2, title: "Calculs de tarifs mémorisés", image: "/images/ic_search.png" },
+    { id: 1, title: "Bureaux favoris", image: "/images/ic_star.png" },
+    { id: 2, title: "Calculs de \ntarifs mémorisés", image: "/images/ic_search.png" },
     { id: 3, title: "Suivi d’envoi \nen cours", image: "/images/ic_send_mail.png" },
     { id: 4, title: "Notifications", image: "/images/ic_notification.png" },
     { id: 5, title: "Visite guidée", image: "/images/icon_visite_guidee.png" }
@@ -59,7 +59,7 @@ function closeMenu() {
     });
 
     $.SlideMenu.Wrapper.animate({
-        left: "-250dp",
+        left: "-320dp",
         duration: 250,
         curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
     });

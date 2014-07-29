@@ -48,6 +48,7 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
+        <module platform="iphone">ti.compression</module>
         <module platform="android">ti.compression</module>
     </modules>
     <deployment-targets>

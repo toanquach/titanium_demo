@@ -8,7 +8,6 @@ var nodes = [
     { id: 5, title: "Visite guidée", image: "/images/icon_visite_guidee.png" }
 ];
 
-var isMenuClose = true;
 if(!Ti.Platform.Android)
 {
 	$.AppWrapper.width = '320';
@@ -22,6 +21,7 @@ $.SlideMenu.init({
     }
 });
 
+$.SlideMenu.isCloseMenu = true;
 // Set the first node as active
 $.SlideMenu.setIndex(0);
 
@@ -33,7 +33,9 @@ function handleMenuClick(_event) {
     if(typeof _event.row.id !== "undefined") {
         // Open the corresponding controller
         //openScreen(_event.row.id);
-        Ti.App.Info(_event.row,id);
+        Ti.API.info(_event.row.id);
+        alert('menu clicked: ' + _event.row.id);
+        $.SlideMenu.setIndex(_event.row.id);
     }
 }
 
@@ -49,7 +51,26 @@ function openMenu() {
         duration: 250,
         curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
     });
+    
+    $.SlideMenu.isCloseMenu = false;
 }
+
+Alloy.Globals.openMenu = function() {
+    $.AppWrapper.animate({
+        left: "245dp",
+        duration: 250,
+        curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+    });
+
+    $.SlideMenu.Wrapper.animate({
+        left: "0dp",
+        duration: 250,
+        curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+    });
+    
+    $.SlideMenu.isCloseMenu = false;
+};
+
 
 function closeMenu() {
     $.AppWrapper.animate({
@@ -63,15 +84,31 @@ function closeMenu() {
         duration: 250,
         curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
     });
+    
+    $.SlideMenu.isCloseMenu = true;
 }
+
+Alloy.Globals.closeMenu = function() {
+    $.AppWrapper.animate({
+        left: "0dp",
+        duration: 250,
+        curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+    });
+
+    $.SlideMenu.Wrapper.animate({
+        left: "-320dp",
+        duration: 250,
+        curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+    });
+    
+    $.SlideMenu.isCloseMenu = true;
+};
 
 $.AppWrapper.addEventListener("swipe", function(_event) {
     if(_event.direction == "right") {
         openMenu();
-        isMenuClose = false;
     } else if(_event.direction == "left") {
         closeMenu();
-        isMenuClose = true;
     }
 });
 
@@ -93,12 +130,13 @@ if (!OS_ANDROID) {
 // Add event for menu button
 menuButton.addEventListener('click', function(e)
 {
-	 if(isMenuClose == true) {
+	 if($.SlideMenu.isCloseMenu == true)
+	 {
         openMenu();
-        isMenuClose = false;
-    } else if(isMenuClose == false) {
+    } 
+    else 
+    {
         closeMenu();
-        isMenuClose = true;
     }
 });
 

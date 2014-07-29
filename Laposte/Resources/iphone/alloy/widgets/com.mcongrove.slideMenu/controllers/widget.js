@@ -63,15 +63,23 @@ function Controller() {
         id: "Wrapper"
     });
     $.__views.Wrapper && $.addTopLevelView($.__views.Wrapper);
+    $.__views.rightView = Ti.UI.createView({
+        id: "rightView",
+        left: "250dp",
+        width: "70dp",
+        top: "0"
+    });
+    $.__views.Wrapper.add($.__views.rightView);
     $.__views.shadowImage = Ti.UI.createImageView({
         contentMode: "aspectfill",
         id: "shadowImage",
         image: "/images/bgd_line_shadow_H.png",
-        left: "250dp",
+        left: "-1dp",
         width: "15dp",
-        top: "0dp"
+        top: "0dp",
+        canScale: "true"
     });
-    $.__views.Wrapper.add($.__views.shadowImage);
+    $.__views.rightView.add($.__views.shadowImage);
     $.__views.Nodes = Ti.UI.createTableView({
         top: "0dp",
         backgroundColor: "#FFC526",
@@ -87,10 +95,12 @@ function Controller() {
     var sections = [];
     var nodes = [];
     var color;
+    var isCloseMenu = true;
     $.init = function(_params) {
         sections = [];
         nodes = [];
         color = "undefined" != typeof _params.color ? _params.color : null;
+        isCloseMenu = true;
         buildSections(_params.nodes);
         if (sections.length > 0) var currentSection = -1;
         for (var i = 0; _params.nodes.length > i; i++) {
@@ -122,7 +132,7 @@ function Controller() {
                     height: "21dp",
                     top: "23dp",
                     left: "13dp",
-                    contentMode: "aspectfill",
+                    contentWidth: Ti.UI.FILL,
                     touchEnabled: false,
                     preventDefaultImage: true
                 });
@@ -149,7 +159,12 @@ function Controller() {
         left: 0,
         right: 0
     });
+    $.rightView.height = $.Wrapper.height;
     $.shadowImage.height = $.Wrapper.height;
+    $.rightView.addEventListener("click", function() {
+        Ti.API.info("bg clicked" + $.isCloseMenu);
+        true == $.isCloseMenu ? Alloy.Globals.openMenu() : Alloy.Globals.closeMenu();
+    });
     _.extend($, exports);
 }
 

@@ -59,20 +59,26 @@ function Controller() {
                 top: 10,
                 width: 60,
                 height: 60,
-                image: "/images/preparer_un_envoi_map.png"
+                image: "/images/" + menuInfo.icone
             });
             customView.add(imgView);
             var label = Ti.UI.createLabel({
                 left: 80,
                 height: 30,
                 top: 25,
-                width: 230
+                width: 230,
+                font: {
+                    fontFamily: "DINPro-Regular",
+                    fontSize: "20dp"
+                }
             });
             label.text = rowTitle.text;
-            label.font = "{fontFamily: 'DINPro-Regular', fontSize: 44}";
             customView.add(label);
             row.add(customView);
             data.push(row);
+            customView.addEventListener("click", function() {
+                "lex" == menuInfo.moneid;
+            });
         }
         $.mainMenuTable.setData(data);
     }

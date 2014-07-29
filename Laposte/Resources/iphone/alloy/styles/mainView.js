@@ -1,1 +1,1 @@
-module.exports = [{"isClass":true,"priority":10000.0018,"key":"container","style":{}},{"isId":true,"priority":100000.0019,"key":"AppWrapper","style":{backgroundColor:"white",}}];
+module.exports = [{"isClass":true,"priority":10000.0019,"key":"container","style":{}},{"isId":true,"priority":100000.002,"key":"AppWrapper","style":{backgroundColor:"white",}}];

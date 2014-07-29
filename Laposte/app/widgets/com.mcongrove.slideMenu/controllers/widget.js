@@ -7,6 +7,8 @@ var sections = [];
 var nodes = [];
 var color;
 
+var isCloseMenu = true;
+
 /**
  * Initializes the slide menu
  * @param {Object} _params
@@ -19,7 +21,8 @@ $.init = function(_params) {
 	sections = [];
 	nodes = [];
 	color = typeof _params.color !== "undefined" ? _params.color : null;
-
+	isCloseMenu = true;
+	
 	// Creates a TableViewSection for each tab with a menuHeader property
 	buildSections(_params.nodes);
 
@@ -62,7 +65,7 @@ $.init = function(_params) {
 				height: "21dp",
 				top: "23dp",
 				left: "13dp",
-				contentMode: 'aspectfill',
+				contentWidth: Ti.UI.FILL,
 				touchEnabled: false,
 				preventDefaultImage: true
 			});
@@ -171,4 +174,19 @@ if(OS_IOS && parseInt(Ti.Platform.version.split(".")[0], 10) >= 7) {
 	$.Nodes.setSeparatorInsets({left:0, right:0});
 }
 
+$.rightView.height = $.Wrapper.height;
 $.shadowImage.height = $.Wrapper.height;
+
+$.rightView.addEventListener("click", function(_event) {
+		
+		Ti.API.info('bg clicked' + $.isCloseMenu);
+		if($.isCloseMenu == true)
+		{
+			Alloy.Globals.openMenu();
+		}
+		else
+		{
+			Alloy.Globals.closeMenu();
+		}
+
+		});

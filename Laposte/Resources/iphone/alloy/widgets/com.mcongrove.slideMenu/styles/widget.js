@@ -30,4 +30,9 @@ module.exports = [ {
     style: {
         contentMode: "aspectfill"
     }
+}, {
+    isId: true,
+    priority: 100000.0013,
+    key: "rightView",
+    style: {}
 } ];

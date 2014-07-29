@@ -12,4 +12,7 @@
 },
 "#shadowImage" : {
 	contentMode: 'aspectfill'
+},
+"#rightView" : {
+	
 }

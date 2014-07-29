@@ -49,21 +49,36 @@ if (readFile.exists())
 			{
 				left:0,
 				top:0,
-				height:80
+				height:80	
 			}
 		);
 		
-		var imgView = Ti.UI.createImageView({ left:10, top:10, width:60, height:60, image:'/images/preparer_un_envoi_map.png' });
+		var imgView = Ti.UI.createImageView({ 
+			left:10, 
+			top:10, 
+			width:60, 
+			height:60, 
+			image:'/images/' + menuInfo.icone });
 		customView.add(imgView);
 		
-		var label = Ti.UI.createLabel({left:80, height:30, top:25, width:230});
+		var label = Ti.UI.createLabel({left:80, height:30, top:25, width:230, font: {fontFamily: 'DINPro-Regular', fontSize: '20dp'}});
 		label.text = rowTitle.text;
-		label.font = "{fontFamily: 'DINPro-Regular', fontSize: 44}";
+		//label.font = {fontFamily: 'DINPro-Regular', fontSize: '20dp'};
 		customView.add(label);
 		
 		// Add custom view
 		row.add(customView);
 		data.push(row);
+		
+		/*
+		 * Add Menu Event
+		 */
+		customView.addEventListener('click', function(){
+			if(menuInfo.moneid == 'lex')
+			{
+				
+			}
+		});
 	} 
 	
 	$.mainMenuTable.setData(data);

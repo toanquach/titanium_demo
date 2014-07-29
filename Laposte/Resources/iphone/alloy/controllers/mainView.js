@@ -9,7 +9,11 @@ function __processArg(obj, key) {
 
 function Controller() {
     function handleMenuClick(_event) {
-        "undefined" != typeof _event.row.id && Ti.App.Info(_event.row, id);
+        if ("undefined" != typeof _event.row.id) {
+            Ti.API.info(_event.row.id);
+            alert("menu clicked: " + _event.row.id);
+            $.SlideMenu.setIndex(_event.row.id);
+        }
     }
     function openMenu() {
         $.AppWrapper.animate({
@@ -22,6 +26,7 @@ function Controller() {
             duration: 250,
             curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
+        $.SlideMenu.isCloseMenu = false;
     }
     function closeMenu() {
         $.AppWrapper.animate({
@@ -34,6 +39,7 @@ function Controller() {
             duration: 250,
             curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
+        $.SlideMenu.isCloseMenu = true;
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "mainView";
@@ -94,7 +100,6 @@ function Controller() {
         title: "Visite guidée",
         image: "/images/icon_visite_guidee.png"
     } ];
-    var isMenuClose = true;
     Ti.Platform.Android || ($.AppWrapper.width = "320");
     $.SlideMenu.init({
         nodes: nodes,
@@ -103,16 +108,37 @@ function Controller() {
             headingText: "#FFF"
         }
     });
+    $.SlideMenu.isCloseMenu = true;
     $.SlideMenu.setIndex(0);
     $.SlideMenu.Nodes.addEventListener("click", handleMenuClick);
+    Alloy.Globals.openMenu = function() {
+        $.AppWrapper.animate({
+            left: "245dp",
+            duration: 250,
+            curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+        $.SlideMenu.Wrapper.animate({
+            left: "0dp",
+            duration: 250,
+            curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+        $.SlideMenu.isCloseMenu = false;
+    };
+    Alloy.Globals.closeMenu = function() {
+        $.AppWrapper.animate({
+            left: "0dp",
+            duration: 250,
+            curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+        $.SlideMenu.Wrapper.animate({
+            left: "-320dp",
+            duration: 250,
+            curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+        });
+        $.SlideMenu.isCloseMenu = true;
+    };
     $.AppWrapper.addEventListener("swipe", function(_event) {
-        if ("right" == _event.direction) {
-            openMenu();
-            isMenuClose = false;
-        } else if ("left" == _event.direction) {
-            closeMenu();
-            isMenuClose = true;
-        }
+        "right" == _event.direction ? openMenu() : "left" == _event.direction && closeMenu();
     });
     var menuButton = Ti.UI.createButton({
         backgroundImage: "/images/menu_black.png",
@@ -121,13 +147,7 @@ function Controller() {
     });
     $.MainWindow.setLeftNavButton(menuButton);
     menuButton.addEventListener("click", function() {
-        if (true == isMenuClose) {
-            openMenu();
-            isMenuClose = false;
-        } else if (false == isMenuClose) {
-            closeMenu();
-            isMenuClose = true;
-        }
+        true == $.SlideMenu.isCloseMenu ? openMenu() : closeMenu();
     });
     var mainMenuView = Alloy.createController("mainMenuView").getView();
     $.AppWrapper.add(mainMenuView);

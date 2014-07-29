@@ -9,11 +9,11 @@ function __processArg(obj, key) {
 
 function Controller() {
     function handleMenuClick(_event) {
-        "undefined" != typeof _event.row.id && openScreen(_event.row.id);
+        "undefined" != typeof _event.row.id && Ti.App.Info(_event.row, id);
     }
     function openMenu() {
         $.AppWrapper.animate({
-            left: "200dp",
+            left: "245dp",
             duration: 250,
             curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
@@ -30,7 +30,7 @@ function Controller() {
             curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
         $.SlideMenu.Wrapper.animate({
-            left: "-200dp",
+            left: "-250dp",
             duration: 250,
             curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
@@ -51,16 +51,16 @@ function Controller() {
         title: "Laposte",
         translucent: "false"
     });
-    $.__views.SlideMenu = Alloy.createWidget("com.mcongrove.slideMenu", "widget", {
-        id: "SlideMenu",
-        __parentSymbol: $.__views.MainWindow
-    });
-    $.__views.SlideMenu.setParent($.__views.MainWindow);
     $.__views.AppWrapper = Ti.UI.createView({
         backgroundColor: "white",
         id: "AppWrapper"
     });
     $.__views.MainWindow.add($.__views.AppWrapper);
+    $.__views.SlideMenu = Alloy.createWidget("com.mcongrove.slideMenu", "widget", {
+        id: "SlideMenu",
+        __parentSymbol: $.__views.MainWindow
+    });
+    $.__views.SlideMenu.setParent($.__views.MainWindow);
     $.__views.nav = Ti.UI.iOS.createNavigationWindow({
         window: $.__views.MainWindow,
         id: "nav"
@@ -69,31 +69,68 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var nodes = [ {
-        menuHeader: "My Tabs",
+        menuHeader: "",
         id: 0,
-        title: "Home",
-        image: "/images/home.png"
+        title: "Accueil",
+        image: "/images/ic_home.png"
     }, {
         id: 1,
-        title: "Contact",
-        image: "/images/phone.png"
+        title: "Bureaux \nfavoris",
+        image: "/images/ic_star.png"
     }, {
         id: 2,
-        title: "Settings",
-        image: "/images/gear.png"
+        title: "Calculs de tarifs mémorisés",
+        image: "/images/ic_search.png"
+    }, {
+        id: 3,
+        title: "Suivi d’envoi \nen cours",
+        image: "/images/ic_send_mail.png"
+    }, {
+        id: 4,
+        title: "Notifications",
+        image: "/images/ic_notification.png"
+    }, {
+        id: 5,
+        title: "Visite guidée",
+        image: "/images/icon_visite_guidee.png"
     } ];
+    var isMenuClose = true;
+    Ti.Platform.Android || ($.AppWrapper.width = "320");
     $.SlideMenu.init({
         nodes: nodes,
         color: {
-            headingBackground: "#000",
+            headingBackground: "#FFC526",
             headingText: "#FFF"
         }
     });
     $.SlideMenu.setIndex(0);
     $.SlideMenu.Nodes.addEventListener("click", handleMenuClick);
     $.AppWrapper.addEventListener("swipe", function(_event) {
-        "right" == _event.direction ? openMenu() : "left" == _event.direction && closeMenu();
+        if ("right" == _event.direction) {
+            openMenu();
+            isMenuClose = false;
+        } else if ("left" == _event.direction) {
+            closeMenu();
+            isMenuClose = true;
+        }
     });
+    var menuButton = Ti.UI.createButton({
+        backgroundImage: "/images/menu_black.png",
+        image: "/images/menu_black.png",
+        toggle: false
+    });
+    $.MainWindow.setLeftNavButton(menuButton);
+    menuButton.addEventListener("click", function() {
+        if (true == isMenuClose) {
+            openMenu();
+            isMenuClose = false;
+        } else if (false == isMenuClose) {
+            closeMenu();
+            isMenuClose = true;
+        }
+    });
+    var mainMenuView = Alloy.createController("mainMenuView").getView();
+    $.AppWrapper.add(mainMenuView);
     _.extend($, exports);
 }
 

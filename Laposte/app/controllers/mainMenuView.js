@@ -67,3 +67,8 @@ if (readFile.exists())
 	
 	$.mainMenuTable.setData(data);
 }
+
+if(!Ti.Platform.Android)
+{
+	$.mainMenuTable.setSeparatorInsets({left:0, right:0});
+}

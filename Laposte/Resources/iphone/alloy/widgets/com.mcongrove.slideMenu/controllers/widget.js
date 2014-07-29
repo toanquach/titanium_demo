@@ -57,16 +57,16 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.Wrapper = Ti.UI.createView({
-        width: "200dp",
+        width: "250dp",
         top: "0dp",
-        left: "-200dp",
-        backgroundColor: "#000",
+        left: "-250dp",
+        backgroundColor: "#FFC526",
         id: "Wrapper"
     });
     $.__views.Wrapper && $.addTopLevelView($.__views.Wrapper);
     $.__views.Nodes = Ti.UI.createTableView({
         top: "0dp",
-        backgroundColor: "#111",
+        backgroundColor: "#FFC526",
         separatorColor: "#222",
         separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.SINGLE_LINE,
         id: "Nodes"
@@ -102,7 +102,7 @@ function Controller() {
                     fontSize: "16dp",
                     fontFamily: "HelveticaNeue-Light"
                 },
-                color: "#FFF",
+                color: "#222",
                 touchEnabled: false
             });
             if (_params.nodes[i].image) {
@@ -134,7 +134,10 @@ function Controller() {
     $.setIndex = function(_index) {
         $.Nodes.selectRow(_index);
     };
-    true && parseInt(Ti.Platform.version.split(".")[0], 10) >= 7 && ($.Nodes.top = "20dp");
+    true && parseInt(Ti.Platform.version.split(".")[0], 10) >= 7 && $.Nodes.setSeparatorInsets({
+        left: 0,
+        right: 0
+    });
     _.extend($, exports);
 }
 

@@ -59,7 +59,7 @@ function Controller() {
                 top: 10,
                 width: 60,
                 height: 60,
-                Image: "/images/preparer_un_envoi_map.png"
+                image: "/images/preparer_un_envoi_map.png"
             });
             customView.add(imgView);
             var label = Ti.UI.createLabel({
@@ -70,12 +70,16 @@ function Controller() {
             });
             label.text = rowTitle.text;
             customView.add(label);
-            label.font = " {fontFamily: 'DINPro-Regular'}";
+            label.font = " {fontFamily: 'DINPro-Regular', fontSize: 24  }";
             row.add(customView);
             data.push(row);
         }
         $.mainMenuTable.setData(data);
     }
+    Ti.Platform.Android || $.mainMenuTable.setSeparatorInsets({
+        left: 0,
+        right: 0
+    });
     _.extend($, exports);
 }
 

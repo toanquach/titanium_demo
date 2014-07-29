@@ -1,7 +1,7 @@
 "#Wrapper": {
-	width: "200dp",
+	width: "250dp",
 	top: "0dp",
-	left: "-200dp",
+	left: "-250dp",
 	backgroundColor: "#FFC526"
 },
 "#Nodes": {
@@ -9,4 +9,7 @@
 	backgroundColor: "#FFC526",
 	separatorColor: "#222",
 	separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.SINGLE_LINE
+},
+".row_normal" : {
+	color : "#CCC"
 }

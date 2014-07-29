@@ -9,9 +9,9 @@ module.exports = [ {
     priority: 100000.001,
     key: "Wrapper",
     style: {
-        width: "200dp",
+        width: "250dp",
         top: "0dp",
-        left: "-200dp",
+        left: "-250dp",
         backgroundColor: "#FFC526"
     }
 }, {

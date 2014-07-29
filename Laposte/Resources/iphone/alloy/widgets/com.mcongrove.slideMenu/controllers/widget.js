@@ -57,9 +57,9 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.Wrapper = Ti.UI.createView({
-        width: "200dp",
+        width: "250dp",
         top: "0dp",
-        left: "-200dp",
+        left: "-250dp",
         backgroundColor: "#FFC526",
         id: "Wrapper"
     });

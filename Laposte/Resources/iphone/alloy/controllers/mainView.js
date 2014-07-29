@@ -13,7 +13,7 @@ function Controller() {
     }
     function openMenu() {
         $.AppWrapper.animate({
-            left: "250dp",
+            left: "245dp",
             duration: 250,
             curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
         });
@@ -95,6 +95,7 @@ function Controller() {
         image: "/images/icon_visite_guidee.png"
     } ];
     var isMenuClose = true;
+    Ti.Platform.Android || ($.AppWrapper.width = "320");
     $.SlideMenu.init({
         nodes: nodes,
         color: {

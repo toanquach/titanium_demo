@@ -9,7 +9,10 @@ var nodes = [
 ];
 
 var isMenuClose = true;
-
+if(!Ti.Platform.Android)
+{
+	$.AppWrapper.width = '320';
+}
 // Initialize the slide menu
 $.SlideMenu.init({
     nodes: nodes,
@@ -36,7 +39,7 @@ function handleMenuClick(_event) {
 
 function openMenu() {
     $.AppWrapper.animate({
-        left: "250dp",
+        left: "245dp",
         duration: 250,
         curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
     });

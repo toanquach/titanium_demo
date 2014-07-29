@@ -76,6 +76,10 @@ function Controller() {
         }
         $.mainMenuTable.setData(data);
     }
+    Ti.Platform.Android || $.mainMenuTable.setSeparatorInsets({
+        left: 0,
+        right: 0
+    });
     _.extend($, exports);
 }
 

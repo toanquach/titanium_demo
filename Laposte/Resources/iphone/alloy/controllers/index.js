@@ -65,7 +65,7 @@ function Controller() {
         var compression = require("ti.compression");
         var zipFileName = inputDirectory + "common.zip";
         var result = compression.unzip(outputDirectory, zipFileName, true);
-        "success" == result && (Ti.Filesystem.getFile(outputDirectory, "a.txt").exists() ? alert("PASS: ") : alert("FAIL: The unzipped a.txt does not exist!"));
+        "success" == result && !Ti.Filesystem.getFile(outputDirectory, "a.txt").exists();
     }
     $.spiner.animate(a);
     $.index.open();

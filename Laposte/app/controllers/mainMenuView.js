@@ -7,6 +7,7 @@ var args = arguments[0] || {};
  */
 var readContents;
 var readFile = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory,'/modules/lapostemanifestapp.json');        
+var menus = [];
  
 if (readFile.exists()) 
 {
@@ -15,8 +16,11 @@ if (readFile.exists())
     var doc = readContents.text;
 	var jsonObject = JSON.parse(doc);
 	var manifest = jsonObject.manifest;
+	
+	Alloy.Globals.manifestFile = manifest;
+	
 	var allMenus = manifest.menu;
-	var menus = [];
+	
 	var data = [];
 	var countAllMenus = allMenus.length;
 	
@@ -69,20 +73,68 @@ if (readFile.exists())
 		// Add custom view
 		row.add(customView);
 		data.push(row);
-		
-		/*
-		 * Add Menu Event
-		 */
-		customView.addEventListener('click', function(){
-			if(menuInfo.moneid == 'lex')
-			{
-				
-			}
-		});
 	} 
 	
 	$.mainMenuTable.setData(data);
+	
+	
+	$.mainMenuTable.removeEventListener("click", handleClick);
+	$.mainMenuTable.addEventListener("click", handleClick);
 }
+
+function handleClick(_event) {
+	if(typeof _event.index !== "undefined")
+	{
+		var menuInfo = menus[_event.index];
+		var jsonNode = menuInfo.jsonnode;
+			Ti.API.info(menuInfo.jsonnode);
+			if(jsonNode != '')
+			{
+				// push CGU, Application Service
+				if(jsonNode == 'aplicationsservices')
+				{
+					var appView = Alloy.createController('aplicationServiceView').getView();
+					Alloy.Globals.nav.openWindow(appView);
+				}
+				else
+				{
+					var appView = Alloy.createController('cguView').getView();
+					Alloy.Globals.nav.openWindow(appView);
+				}
+			}
+			else
+			{
+				var targetLevel = menuInfo.targetlevel;
+				if(targetLevel == '')
+				{
+					var arr = [];
+					arr.push({
+					'isFromSubMenu': false
+					});
+					
+					arr.push({
+						'menuInfo': menuInfo
+					});
+					//alert(arr);
+					// push pvwebview
+					var appView = Alloy.createController('pvWebView',arr).getView();
+					Alloy.Globals.nav.openWindow(appView);
+				}
+				else
+				{
+					// push submenu
+					var arr = [];
+					arr.push({
+						'menuInfo': menuInfo
+					});
+					// push pvwebview
+					var appView = Alloy.createController('splashSubMenuView',arr).getView();
+					Alloy.Globals.nav.openWindow(appView);
+				}
+			}
+	}
+};
+
 
 if(!Ti.Platform.Android)
 {

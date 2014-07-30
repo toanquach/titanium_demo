@@ -1,1 +1,1 @@
-module.exports={"dependencies":{"ds.slideMenu":"0.1","com.mcongrove.slideMenu":"1.1"}};
+module.exports={"dependencies":{"com.mcongrove.slideMenu":"1.1"}};

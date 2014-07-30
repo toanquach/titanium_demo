@@ -2,7 +2,7 @@
 	<View id="Wrapper">
 		
 		<View id="rightView" left="250dp" width="70dp" top="0">
-			<ImageView id="shadowImage" image="/images/bgd_line_shadow_H.png" left="-1dp" width="15dp" top="0dp" canScale=true></ImageView>
+			<ImageView id="shadowImage" image="/images/bgd_line_shadow_H.png" left="-1dp" width="15dp" top="0dp" canScale="true"></ImageView>
 		</View>
 		
 		<TableView id="Nodes" width="250dp" left="0dp" />

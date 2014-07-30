@@ -144,4 +144,5 @@ menuButton.addEventListener('click', function(e)
 var mainMenuView = Alloy.createController('mainMenuView').getView();
 $.AppWrapper.add(mainMenuView);
 
+Alloy.Globals.nav = $.nav;
 

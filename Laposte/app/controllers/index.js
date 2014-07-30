@@ -47,11 +47,11 @@ if(!commonDir.exists())
     if (result == 'success') {
         if (!Ti.Filesystem.getFile(outputDirectory, 'a.txt').exists()) 
         {
-            alert('FAIL: The unzipped a.txt does not exist!');
+            //alert('FAIL: The unzipped a.txt does not exist!');
         }
         else
         {
-            alert('PASS: ');
+            //alert('PASS: ');
         }
     }
 	

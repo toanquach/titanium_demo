@@ -6,7 +6,7 @@ function WPATH(s) {
 
 module.exports = [ {
     isId: true,
-    priority: 100000.001,
+    priority: 100000.0002,
     key: "Wrapper",
     style: {
         width: "320dp",
@@ -15,7 +15,7 @@ module.exports = [ {
     }
 }, {
     isId: true,
-    priority: 100000.0011,
+    priority: 100000.0003,
     key: "Nodes",
     style: {
         top: "0dp",
@@ -25,14 +25,14 @@ module.exports = [ {
     }
 }, {
     isId: true,
-    priority: 100000.0012,
+    priority: 100000.0004,
     key: "shadowImage",
     style: {
         contentMode: "aspectfill"
     }
 }, {
     isId: true,
-    priority: 100000.0013,
+    priority: 100000.0005,
     key: "rightView",
     style: {}
 } ];

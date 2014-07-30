@@ -1,0 +1,8 @@
+<Alloy>
+	<Window id="win" backgroundColor="white" barColor="#FFC526" translucent="false" class="container">
+		<View id="title">
+			<ImageView id="imageView" image ="/images/lexique_sub_icon.png" />
+		</View>
+		<WebView id="webview"/>	
+	</Window>
+</Alloy>

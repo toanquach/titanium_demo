@@ -8,6 +8,40 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function handleClick(_event) {
+        if ("undefined" != typeof _event.index) {
+            var menuInfo = menus[_event.index];
+            var jsonNode = menuInfo.jsonnode;
+            Ti.API.info(menuInfo.jsonnode);
+            if ("" != jsonNode) if ("aplicationsservices" == jsonNode) {
+                var appView = Alloy.createController("aplicationServiceView").getView();
+                Alloy.Globals.nav.openWindow(appView);
+            } else {
+                var appView = Alloy.createController("cguView").getView();
+                Alloy.Globals.nav.openWindow(appView);
+            } else {
+                var targetLevel = menuInfo.targetlevel;
+                if ("" == targetLevel) {
+                    var arr = [];
+                    arr.push({
+                        isFromSubMenu: false
+                    });
+                    arr.push({
+                        menuInfo: menuInfo
+                    });
+                    var appView = Alloy.createController("pvWebView", arr).getView();
+                    Alloy.Globals.nav.openWindow(appView);
+                } else {
+                    var arr = [];
+                    arr.push({
+                        menuInfo: menuInfo
+                    });
+                    var appView = Alloy.createController("splashSubMenuView", arr).getView();
+                    Alloy.Globals.nav.openWindow(appView);
+                }
+            }
+        }
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "mainMenuView";
     if (arguments[0]) {
@@ -28,13 +62,14 @@ function Controller() {
     arguments[0] || {};
     var readContents;
     var readFile = Titanium.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, "/modules/lapostemanifestapp.json");
+    var menus = [];
     if (readFile.exists()) {
         readContents = readFile.read();
         var doc = readContents.text;
         var jsonObject = JSON.parse(doc);
         var manifest = jsonObject.manifest;
+        Alloy.Globals.manifestFile = manifest;
         var allMenus = manifest.menu;
-        var menus = [];
         var data = [];
         var countAllMenus = allMenus.length;
         for (var i = 0; countAllMenus > i; i++) {
@@ -76,11 +111,10 @@ function Controller() {
             customView.add(label);
             row.add(customView);
             data.push(row);
-            customView.addEventListener("click", function() {
-                "lex" == menuInfo.moneid;
-            });
         }
         $.mainMenuTable.setData(data);
+        $.mainMenuTable.removeEventListener("click", handleClick);
+        $.mainMenuTable.addEventListener("click", handleClick);
     }
     Ti.Platform.Android || $.mainMenuTable.setSeparatorInsets({
         left: 0,

@@ -1,0 +1,10 @@
+<Alloy>
+	<Window id="win" backgroundColor="white" barColor="#FFC526" translucent="false" class="container">
+		<View id="title">
+			<ImageView id="imageView"></ImageView>
+		</View>
+		<TableView id="tableView">
+			
+		</TableView>	
+	</Window>
+</Alloy>

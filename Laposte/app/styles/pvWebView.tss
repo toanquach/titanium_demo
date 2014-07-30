@@ -1,0 +1,33 @@
+
+".container": {
+	layout: 'vertical'
+}
+"#title": {
+	top: 0,
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	width: '100%'
+}
+
+"#imageView": {
+	width: '80dp',
+	height: '100dp',
+	bottom: '20dp',
+	top:'20dp'
+}
+
+"#lableTitle":{
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	bottom: 20,
+	top: 10,
+	color: 'white',
+	font: {
+		fontSize: 24
+	}
+}
+
+"#webview":{
+	bottom: 0,
+	width: '100%'
+}

@@ -151,6 +151,7 @@ function Controller() {
     });
     var mainMenuView = Alloy.createController("mainMenuView").getView();
     $.AppWrapper.add(mainMenuView);
+    Alloy.Globals.nav = $.nav;
     _.extend($, exports);
 }
 

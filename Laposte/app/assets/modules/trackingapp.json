@@ -1,0 +1,83 @@
+{
+    "tracking": {
+        "accueil": {
+            "myPageLabel": "accueil",
+            "andPageChapter":"",
+            "setLevel2":"2"
+        },
+        "interstitiel": {
+            "myPageLabel": "interstitiel",
+            "andPageChapter":"",
+            "setLevel2":"2"
+        },
+        "fermeture": {
+            "myPageLabel": "fermeture",
+            "andPageChapter":"",
+            "setLevel2":"2"
+        },
+        "background": {
+            "myPageLabel": "mise_en_background",
+            "andPageChapter":"",
+            "setLevel2":"2"
+        },
+        "burgersection": {
+            "calcultarif": {
+                "myPageLabel": "calcul_tarifs_memorises",
+                "andPageChapter":"",
+                "setLevel2":"1"
+            },
+            "bureaufavoris": {
+                "myPageLabel": "bureau_et_relais_favoris",
+                "andPageChapter":"",
+                "setLevel2":"1"
+            },
+            "produitfavoris": {
+                "myPageLabel": "produits_favoris",
+                "andPageChapter":"",
+                "setLevel2":"1"
+            },
+            "suiviencours": {
+                "myPageLabel": "suivi_envois_en_cours",
+                "andPageChapter":"",
+                "setLevel2":"1"
+            },
+            "notifications": {
+                "myPageLabel": "notifications",
+                "andPageChapter":"",
+                "setLevel2":"1"
+            }
+            
+        },
+        "moduleapplication": {
+            "setLevel2":[
+                          {"appid":"app_2","setLevel2":"5"},
+                          {"appid":"app_3","setLevel2":"4"},
+                          {"appid":"app_5","setLevel2":"3"},
+                          {"appid":"app_6","setLevel2":"7"}
+                          ],
+            "splash": {
+                "myPageLabel": "interstitiel",
+                "andPageChapter": "<thenavigationname>"
+            },
+            "submenu": {
+                "myPageLabel": "accueil",
+                "andPageChapter": "<thenavigationname>"
+            }
+        },
+        "mentionlegal": {
+            "myPageLabel": "mentions_legales"
+        },
+        "autreapplication": {
+            "liste":{
+                "myPageLabel": "liste",
+                "andPageChapter":"autres_applis_services",
+                "setLevel2":"2"
+            },
+            "details": {
+                "myPageLabel": "<application_name>",
+                "andPageChapter":"autres_applis_services",
+                "setLevel2":"2"
+            }
+        }
+    }
+}

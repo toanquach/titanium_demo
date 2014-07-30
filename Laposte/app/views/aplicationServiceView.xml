@@ -1,0 +1,7 @@
+<Alloy>
+	<Window id="win" backgroundColor="white" barColor="#FFC526"  title="Application Services" translucent="false">
+		<TableView id="applicationTable" minRowHeight="40">
+			
+		</TableView>
+	</Window>
+</Alloy>
